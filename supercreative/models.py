@@ -9,7 +9,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
-    skill = models.CharField(max_length=255)
+    skill = models.CharField(max_length=255, default='')
 
 class Course(models.Model):
     course_id = models.IntegerField(unique=True)

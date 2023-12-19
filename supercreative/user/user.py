@@ -118,7 +118,7 @@ def create_user_w_skill(uid, email, password, role, first, last, phone, address,
     if not isinstance(address, str) or len(address) == 0:
         return False
 
-    if not isinstance(skill,str):
+    if not(isinstance(skill, str) or skill == "" or skill is None):
         return False
 
     new_user = User(user_id=uid, email=email, password=password, role=role, first_name=first, last_name=last,
