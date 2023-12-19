@@ -176,9 +176,8 @@ class Courses(View):
 
         return render(request, 'courses.html', {'courses': courses})
 
-
-
-
+class ManageCourse(View):
+    pass
 
 
 
