@@ -161,17 +161,20 @@ class Users(View):
 
 class Courses(View):
     def get(self, request):
-        role = request.session['role']
         if not authentication.active_session_exists(request):
             return redirect("/")
+        role = request.session['role']
+
         # get all the courses
         courses = Course.objects.all()
         return render(request, 'courses.html', {'courses': courses, 'role': role})
 
     def post(self, request):
-        role = request.session['role']
         if not authentication.active_session_exists(request):
             return redirect("/")
+
+        role = request.session['role']
+
 
         courses = Course.objects.all()
 

@@ -30,3 +30,21 @@ class LogoutAcceptanceTest(TestCase):
         for key, value in self.session.items():
             with self.assertRaises(KeyError):
                 self.client.session[key]
+    def test_no_sessoin(self):
+        # redirect to login simulates user clicking logout link
+        self.client.get('/', follow=True)
+
+        response = self.client.get('/course/', follow=True)
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200,
+                             msg_prefix="Failed to redirect to login page")
+
+        response = self.client.get('/users/', follow=True)
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200,
+                             msg_prefix="Failed to redirect to login page")
+
+        response = self.client.get('/manage-course/', follow=True)
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200, msg_prefix="Failed to redirect to login page")
+
+        response = self.client.get('/home/', follow=True)
+        self.assertRedirects(response, '/', status_code=302, target_status_code=200,
+                             msg_prefix="Failed to redirect to login page")
