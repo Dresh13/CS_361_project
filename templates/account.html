@@ -61,7 +61,7 @@
                 </tr>
                 {% for assignment in user_assignments %}
                     <tr>
-                        <td>{{ assignment.course_id.course_code }} {{ assignment.section_id.section_id }}</td>
+                        <td>{{ assignment.course_id.course_code }} {% if assignment.section_id.section_id %}- {{ assignment.section_id.section_id }} {% endif %}</td>
                         <td>{{ assignment.course_id.course_name }}</td>
                         <td>{{ assignment.section_type.section_type_name }}</td>
                     </tr>

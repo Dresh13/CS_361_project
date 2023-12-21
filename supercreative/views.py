@@ -102,6 +102,7 @@ class Users(View):
             email = request.POST.get('email')
             password = request.POST.get('password')
             role = request.POST.get('role')
+            print(role)
             first_name = request.POST.get('first_name')
             last_name = request.POST.get('last_name')
             phone_number = request.POST.get('phone_number')
@@ -120,6 +121,7 @@ class Users(View):
                                    'popup': True,
                                    'edit': True,
                                    'new': True,
+                                    'all_roles': all_roles,
                                    'error': response,
                                    'role': role})
 
@@ -333,7 +335,9 @@ class ManageCourse(View):
                            'new': True,
                            'uca_sections': uca_sections,
                            'role': request.session['role']})
+        elif 'new_section' in request.POST.get('action'):
 
+            section_type = request.POST.get('section_type')
             # create the new section
             response = section_helper.create_section(Course.objects.get(course_id=course_id), section_type)
             uca_sections = section_helper.get_sections(course=course_id)
