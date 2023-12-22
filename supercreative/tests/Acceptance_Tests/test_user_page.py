@@ -18,6 +18,7 @@ class UserPageTests(TestCase):
 
     def test_post_with_valid_data(self):
         post_data = {
+            'action': 'edit_user',
             'user_id': self.existing_user.user_id,
             'password': 'new_password',
             'role': 'new_role',
@@ -32,6 +33,7 @@ class UserPageTests(TestCase):
 
     def test_post_with_invalid_data(self):
         post_data = {
+            'action': 'edit_user',
             'user_id': self.existing_user.user_id,
             'password': 'new_password',
             'role': 'new_role',

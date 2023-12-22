@@ -205,7 +205,7 @@ class ManageCoursesAcceptanceTests(TestCase):
         response = self.client.post('/manage-course/',
                                     {'action': 'view_section',
                                      'section_id': self.existing_section_2.section_id,
-                                     'course_id': self.existing_course.course_id})
+                                     'course_id': self.existing_course.course_id,})
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'manage-course.html')

@@ -27,6 +27,7 @@ def create_user(email, password, role, first, last, phone, address):
     if not upper or not lower or not special:
         return "Password must contain at least one uppercase letter, one lowercase letter, and one special character."
 
+    print(role)
     if not UserRole.objects.filter(role_name=role).exists():
         return "Invalid role selected."
 

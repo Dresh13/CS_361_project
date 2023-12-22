@@ -132,7 +132,7 @@
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" required>
                 <label for="role">Role:</label>
-                <select>
+                <select id='role' name="role" required>
                     {% if new %}
                         <option value="" disabled selected>Select a Role</option>
                     {% else %}
